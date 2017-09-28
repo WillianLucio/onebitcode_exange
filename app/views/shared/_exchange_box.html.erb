@@ -10,9 +10,12 @@
             <p class="title">Moeda Local</p>
             <%= select_tag "currency", options_for_select(currency_select, "BRL"), class: "form-control", id: "currency" %>
           </div>
-          <div class="form-group">
+          <div class="form-group" >
             <input type="number" name="quantity" id="quantity" class="form-control" placeholder="Quantidade ($10)" step="any" required>
           </div>
+        </div>
+        <div class="reverse_currencies">
+            <%= image_tag '/refresh.png', class: "img-responsive", size: "42x42"%>
         </div>
         <div class="destination_currency">
           <div class="form-group">
@@ -24,7 +27,7 @@
           </div>
         </div>
         <div>
-          <button type="submit" class="btn btn-primary btn-exchange col-md-12">CONVERTER</button>
+            <button type="submit" class="btn btn-primary btn-exchange col-md-12">CONVERTER</button>
         </div>
       <% end %>
     </div>
