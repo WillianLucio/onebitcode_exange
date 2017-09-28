@@ -19653,26 +19653,49 @@ Copyright © 2017 Basecamp, LLC
 return t.dispatch("turbolinks:before-render",{data:{newBody:e}})},r.prototype.notifyApplicationAfterRender=function(){return t.dispatch("turbolinks:render")},r.prototype.notifyApplicationAfterPageLoad=function(e){return null==e&&(e={}),t.dispatch("turbolinks:load",{data:{url:this.location.absoluteURL,timing:e}})},r.prototype.startVisit=function(t,e,r){var n;return null!=(n=this.currentVisit)&&n.cancel(),this.currentVisit=this.createVisit(t,e,r),this.currentVisit.start(),this.notifyApplicationAfterVisitingLocation(t)},r.prototype.createVisit=function(e,r,n){var o,i,s,a,u;return i=null!=n?n:{},a=i.restorationIdentifier,s=i.restorationData,o=i.historyChanged,u=new t.Visit(this,e,r),u.restorationIdentifier=null!=a?a:t.uuid(),u.restorationData=t.copyObject(s),u.historyChanged=o,u.referrer=this.location,u},r.prototype.visitCompleted=function(t){return this.notifyApplicationAfterPageLoad(t.getTimingMetrics())},r.prototype.clickEventIsSignificant=function(t){return!(t.defaultPrevented||t.target.isContentEditable||t.which>1||t.altKey||t.ctrlKey||t.metaKey||t.shiftKey)},r.prototype.getVisitableLinkForNode=function(e){return this.nodeIsVisitable(e)?t.closest(e,"a[href]:not([target]):not([download])"):void 0},r.prototype.getVisitableLocationForLink=function(e){var r;return r=new t.Location(e.getAttribute("href")),this.locationIsVisitable(r)?r:void 0},r.prototype.getActionForLink=function(t){var e;return null!=(e=t.getAttribute("data-turbolinks-action"))?e:"advance"},r.prototype.nodeIsVisitable=function(e){var r;return(r=t.closest(e,"[data-turbolinks]"))?"false"!==r.getAttribute("data-turbolinks"):!0},r.prototype.locationIsVisitable=function(t){return t.isPrefixedBy(this.view.getRootLocation())&&t.isHTML()},r.prototype.getCurrentRestorationData=function(){return this.getRestorationDataForIdentifier(this.restorationIdentifier)},r.prototype.getRestorationDataForIdentifier=function(t){var e;return null!=(e=this.restorationData)[t]?e[t]:e[t]={}},r}()}.call(this),function(){var e,r,n;t.start=function(){return r()?(null==t.controller&&(t.controller=e()),t.controller.start()):void 0},r=function(){return null==window.Turbolinks&&(window.Turbolinks=t),n()},e=function(){var e;return e=new t.Controller,e.adapter=new t.BrowserAdapter(e),e},n=function(){return window.Turbolinks===t},n()&&t.start()}.call(this)}).call(this),"object"==typeof module&&module.exports?module.exports=t:"function"==typeof define&&define.amd&&define(t)}).call(this);
 (function() {
   $(document).ready(function() {
-    return $('form').submit(function() {
+    var exchange;
+    $("#quantity").keyup(function() {
+      return exchange();
+    });
+    $('#currency').click(function() {
+      return exchange();
+    });
+    $('#currency_destination').click(function() {
+      return exchange();
+    });
+    $('.reverse_currencies').click(function() {
+      var currency, currency_destination;
       if ($('form').attr('action') === '/exchange') {
-        $.ajax('/exchange', {
-          type: 'POST',
-          dataType: 'json',
-          data: {
-            currency: $("#currency").val(),
-            currency_destination: $("#currency_destination").val(),
-            quantity: $("#quantity").val()
-          },
-          error: function(jqXHR, textStatus, errorThrown) {
-            return alert(textStatus);
-          },
-          success: function(data, text, jqXHR) {
-            return $('#result').val(data.value);
-          }
-        });
-        return false;
+        currency = $('#currency').val();
+        currency_destination = $('#currency_destination').val();
+        $('#currency').val(currency_destination);
+        $('#currency_destination').val(currency);
+        return exchange();
       }
     });
+    $('form').submit(function() {
+      if ($('form').attr('action') === '/exchange') {
+        return exchange();
+      }
+    });
+    return exchange = function() {
+      $.ajax('/exchange', {
+        type: 'POST',
+        dataType: 'json',
+        data: {
+          currency: $("#currency").val(),
+          currency_destination: $("#currency_destination").val(),
+          quantity: $("#quantity").val()
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+          return alert(textStatus);
+        },
+        success: function(data, text, jqXHR) {
+          return $('#result').val(data.value);
+        }
+      });
+      return false;
+    };
   });
 
 }).call(this);

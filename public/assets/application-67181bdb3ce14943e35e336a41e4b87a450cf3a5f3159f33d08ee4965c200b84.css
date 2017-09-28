@@ -10521,3 +10521,7 @@ body {
   border-color: #5bc0de;
   border-radius: 0;
 }
+/* line 24, /usr/src/app/app/assets/stylesheets/_exchange_box.scss */
+.exchange_box .card .card-block .btn-refresh {
+  text-align: center;
+}
