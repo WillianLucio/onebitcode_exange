@@ -8,7 +8,7 @@ $(document).ready ->
   $('#currency_destination').click ->
     exchange()
 
-  $('.reverse_currencies').click ->
+  $('#reverse_currencies').click ->
     if $('form').attr('action') == '/exchange'
       currency = $('#currency').val()
       currency_destination = $('#currency_destination').val()
