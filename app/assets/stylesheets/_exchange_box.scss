@@ -2,27 +2,23 @@
     .card{
       border: 0;
       .card-header{
-        background-color: #878d99;
+        background-color: #2096f3;
         border-radius: 0;
         color: white;
         font-weight: 700;
       }
       .card-block{
         padding-top: 10px;
-        padding-left: 20px;
-        padding-right: 20px;
-        padding-bottom: 20px;
+        padding-left: 30px;
+        padding-right: 30px;
         .title{
           color: #878d99;
           font-weight: 700;
         }
-        .btn-exchange{
-          background-color: #5bc0de;
-          border-color: #5bc0de;
-          border-radius: 0;
-        }
-        .btn-refresh{
-          text-align: center;
+        .reverse_currencies{
+          padding-left: 10px;
+          padding-right: 10px;
+          padding-top: 40px;
         }
       }
     }

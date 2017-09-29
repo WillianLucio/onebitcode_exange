@@ -10474,19 +10474,20 @@ body {
 
 /* line 9, /usr/src/app/app/assets/stylesheets/home.scss */
 .title-box {
-  margin-top: 20%;
+  margin-top: 20px;
 }
 /* line 11, /usr/src/app/app/assets/stylesheets/home.scss */
 .title-box .title {
   color: white;
+  text-align: center;
   text-shadow: 2px 0px 2px #000000;
 }
 
-/* line 17, /usr/src/app/app/assets/stylesheets/home.scss */
+/* line 18, /usr/src/app/app/assets/stylesheets/home.scss */
 .exchange_box {
   margin: 10px auto;
 }
-/* line 19, /usr/src/app/app/assets/stylesheets/home.scss */
+/* line 20, /usr/src/app/app/assets/stylesheets/home.scss */
 .exchange_box .logo-box {
   margin: 0 auto;
   padding-bottom: 10px;
@@ -10498,7 +10499,7 @@ body {
 }
 /* line 4, /usr/src/app/app/assets/stylesheets/_exchange_box.scss */
 .exchange_box .card .card-header {
-  background-color: #878d99;
+  background-color: #2096f3;
   border-radius: 0;
   color: white;
   font-weight: 700;
@@ -10506,22 +10507,17 @@ body {
 /* line 10, /usr/src/app/app/assets/stylesheets/_exchange_box.scss */
 .exchange_box .card .card-block {
   padding-top: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
-/* line 15, /usr/src/app/app/assets/stylesheets/_exchange_box.scss */
+/* line 14, /usr/src/app/app/assets/stylesheets/_exchange_box.scss */
 .exchange_box .card .card-block .title {
   color: #878d99;
   font-weight: 700;
 }
-/* line 19, /usr/src/app/app/assets/stylesheets/_exchange_box.scss */
-.exchange_box .card .card-block .btn-exchange {
-  background-color: #5bc0de;
-  border-color: #5bc0de;
-  border-radius: 0;
-}
-/* line 24, /usr/src/app/app/assets/stylesheets/_exchange_box.scss */
-.exchange_box .card .card-block .btn-refresh {
-  text-align: center;
+/* line 18, /usr/src/app/app/assets/stylesheets/_exchange_box.scss */
+.exchange_box .card .card-block .reverse_currencies {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 40px;
 }
